@@ -19,37 +19,43 @@ def start_process(path):
                                                         # parking_spot_manager.py 에 있는
                                                         # print_spots 함수를 호출한다.
 
-        elif select == 2:
-            print("---filter by---")
+        elif select == 2:                               # 2 를 입력했을 경우, 
+            print("---filter by---")                    # filter 기능을 이용할 수 있다.
             print("[1] name")
             print("[2] city")
             print("[3] district")
             print("[4] ptype")
             print("[5] location")
-            select = int(input('type:'))
+            select = int(input('type:'))    # 어떤 방식으로 필터를 할 것인지 입력을 받는다.
+            
             if select == 1:
-                keyword = input('type name:')
-                print("not implemented yet")
-                # fill this block
+                keyword = input('type name:')                                               # 1 을 입력했을 경우, 문자열을 받아서 keyword 에 저장하고
+                main_list = parking_spot_manager.filter_by_name(main_list, keyword)         # parking_spot_manager.py 에 있는 filter_by_name 함수를 호출한다.
+                                                                                            # main_list 를 위 함수의 return 값으로 덮어씌운다.
+
             elif select == 2:
-                keyword = input('type city:')
-                print("not implemented yet")
-                # fill this block
+                keyword = input('type city:')                                               # 2 를 입력했을 경우, 문자열을 받아서 keyword 에 저장하고
+                main_list = parking_spot_manager.filter_by_city(main_list, keyword)         # parking_spot_manager.py 에 있는 filter_by_city 함수를 호출한다.
+                                                                                            # main_list 를 위 함수의 return 값으로 덮어씌운다.
+            
             elif select == 3:
-                keyword = input('type district:')
-                print("not implemented yet")
-                # fill this block
+                keyword = input('type district:')                                           # 3 을 입력했을 경우, 문자열을 받아서 keyword 에 저장하고
+                main_list = parking_spot_manager.filter_by_district(main_list, keyword)     # parking_spot_manager.py 에 있는 filter_by_district 함수를 호출한다.
+                                                                                            # main_list 를 위 함수의 return 값으로 덮어씌운다.
+                
             elif select == 4:
-                keyword = input('type ptype:')
-                print("not implemented yet")
-                # fill this block
+                keyword = input('type ptype:')                                              # 4 를 입력했을 경우, 문자열을 받아서 keyword 에 저장하고
+                main_list = parking_spot_manager.filter_by_ptype(main_list, keyword)        # parking_spot_manager.py 에 있는 filter_by_ptype 함수를 호출한다.
+                                                                                            # main_list 를 위 함수의 return 값으로 덮어씌운다.
+                
             elif select == 5:
-                min_lat = float(input('type min lat:'))
-                max_lat = float(input('type max lat:'))
-                min_lon = float(input('type min long:'))
-                max_lon = float(input('type max long:'))
-                print("not implemented yet")
-                # fill this block
+                min_lat = float(input('type min lat:'))                                     # 5 를 입력했을 경우, 최소/최대 위도, 최소/최대 경도를 입력받아
+                max_lat = float(input('type max lat:'))                                     # tuple 이라는 튜플에 위의 4개의 값을 순서대로 저장하고, 
+                min_lon = float(input('type min long:'))                                    # parking_spot_manager.py 에 있는 filter_by_location 함수를 호출한다.
+                max_lon = float(input('type max long:'))                                    # main_list 를 위 함수의 return 값으로 덮어씌운다.
+                tuple = (min_lat, max_lat, min_lon, max_lon)
+                main_list = parking_spot_manager.filter_by_location(main_list, tuple)
+
             else:
                 print("invalid input")
 
