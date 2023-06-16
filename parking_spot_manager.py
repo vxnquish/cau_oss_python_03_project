@@ -48,3 +48,8 @@ def filter_by_location(spots, locations):
                             and locations[2] < i.get('longitude')                          
                             and locations[3] > i.get('longitude')]
     return list
+
+# Version 4
+def sort_by_keyword(spots, keyword):                                    
+    return sorted(spots, key = lambda x: x.get(keyword))                # 입력 받은 keyword 를 정렬 기준으로 삼고,
+                                                                        # 정렬 된 spots 를 return 한다.
